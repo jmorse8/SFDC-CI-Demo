@@ -1,0 +1,20 @@
+<project name="ANT_Test" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+	
+    <target name="retrieve">
+      <sf:retrieve username="${sf.username_dev}" password="${sf.password_dev}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="retrieve" unpackaged="retrieve/Devmanifest.xml"/>
+    </target>	
+	
+	<target name="validate">
+	<!-- Validate the contents of the retrieve directory -->
+      <sf:deploy username="${sf.username_dev}" password="${sf.password_dev}" serverurl="${sf.serverurl}" runAllTests="True" rollbackOnError="True" maxPoll="${sf.maxPoll}" deployRoot="retrieve" checkOnly="true"/>
+    </target>
+
+	<target name="deploy">
+	<!-- Upload the contents of the retrieve directory -->
+      <sf:deploy username="${sf.username_dev}" password="${sf.password_dev}" serverurl="${sf.serverurl}" runAllTests="True" rollbackOnError="True"  maxPoll="${sf.maxPoll}" deployRoot="retrieve"/>
+    </target>
+	
+</project>
