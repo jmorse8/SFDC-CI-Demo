@@ -1,5 +1,7 @@
 <project name="ANT_Test" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
+<taskdef name="retrieve" classpath="ant-salesforce.jar" />
+
     <property file="build.properties"/>
     <property environment="env"/>
 	
