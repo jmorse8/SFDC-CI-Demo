@@ -1,4 +1,5 @@
-<project name="ANT_Test" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="ANT_Test" basedir="." xmlns:sf="antlib:com.salesforce">
+
 
 <taskdef name="retrieve" classpath="ant-salesforce.jar" />
 
